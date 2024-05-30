@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <style>
+        #click-area {
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Event Handling</h1>
+    
+    <div id="click-area">
+        Click inside this box
+    </div>
+    <p id="output"></p>
+
+    <script>
+        const clickArea = document.getElementById('click-area');
+        const output = document.getElementById('output');
+
+        clickArea.addEventListener('click', function(event) {
+            if (event.button === 0) {
+                output.textContent = 'Left mouse button clicked';
+            }
+        });
+
+        clickArea.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            output.textContent = 'Right mouse button clicked';
+        });
+    </script>
+</body>
+</html>

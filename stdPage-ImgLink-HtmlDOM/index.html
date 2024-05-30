@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merged Web Page Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+        .textbox {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dynamic-element {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #a11818;
+            border-radius: 4px;
+        }
+        #element-container {
+            margin-top: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="login-container">
+            <h2>Student Login</h2>
+            <form>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Hyperlinks</h2>
+        <p>Visit <a href="https://www.example.com">Example</a> for more information.</p>
+        
+        <h2>Images</h2>
+        <img src="https://via.placeholder.com/200" alt="Sample Image">
+    </div>
+
+    <div class="section">
+        <h1>Dynamic Content Manipulation</h1>
+        
+        <button onclick="addElement()">Add Element</button>
+        <button onclick="deleteElement()">Delete Element</button>
+        <button onclick="moveElement()">Move Element</button>
+        <button onclick="changeColor()">Change Color</button>
+        <button onclick="changeFont()">Change Font</button>
+        
+        <div id="element-container">
+            <div class="dynamic-element" id="element1">Element 1</div>
+            <div class="dynamic-element" id="element2">Element 2</div>
+        </div>
+    </div>
+
+    <script>
+        function addElement() {
+            const container = document.getElementById('element-container');
+            const newElement = document.createElement('div');
+            newElement.className = 'dynamic-element';
+            newElement.textContent = 'New Element';
+            container.appendChild(newElement);
+        }
+
+        function deleteElement() {
+            const container = document.getElementById('element-container');
+            if (container.lastElementChild) {
+                container.removeChild(container.lastElementChild);
+            }
+        }
+
+        function moveElement() {
+            const container = document.getElementById('element-container');
+            if (container.children.length > 1) {
+                const firstElement = container.firstElementChild;
+                container.appendChild(firstElement);
+            }
+        }
+
+        function changeColor() {
+            const elements = document.getElementsByClassName('dynamic-element');
+            for (let element of elements) {
+                element.style.backgroundColor = 'lightblue';
+            }
+        }
+
+        function changeFont() {
+            const elements = document.getElementsByClassName('dynamic-element');
+            for (let element of elements) {
+                element.style.fontFamily = 'Courier New, Courier, monospace';
+            }
+        }
+    </script>
+</body>
+</html>

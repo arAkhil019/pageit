@@ -1,0 +1,14 @@
+// Connect to MongoDB
+use myDatabase
+
+// Create
+db.myCollection.insertOne({ name: "John Doe", age: 30, department: "Engineering" })
+
+// Read
+db.myCollection.find({})
+
+// Update
+db.myCollection.updateOne({ name: "John Doe" }, { $set: { age: 31 } })
+
+// Delete
+db.myCollection.deleteOne({ name: "John Doe" })
